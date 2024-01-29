@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>x_avaso_ava_credit_on_hand_value</field>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 10:56:23</sys_created_on>
+        <sys_id>f24fb9d5938002105f577b018bba1054</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_avaso_ava_credit_on_hand_value</sys_name>
+        <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+        <sys_update_name>sys_ui_policy_action_f24fb9d5938002105f577b018bba1054</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 10:56:23</sys_updated_on>
+        <table>x_898369_ava_cre_0_item_quantity</table>
+        <ui_policy display_value="Make item quantity fields mandatory">0a1f35d5938002105f577b018bba10af</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>

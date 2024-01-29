@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 10:25:58</sys_created_on>
+        <sys_id>de38b19d934002105f577b018bba1014</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>.x_898369_ava_cre_0.x_avaso_ava_credit.user</sys_name>
+        <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+        <sys_security_acl display_value="x_898369_ava_cre_0_item_quantity.*">4938f59d934002105f577b018bba10ce</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_de38b19d934002105f577b018bba1014</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 10:25:58</sys_updated_on>
+        <sys_user_role display_value="x_898369_ava_cre_0.x_avaso_ava_credit.user" name="x_898369_ava_cre_0.x_avaso_ava_credit.user">8cc5b1d9934002105f577b018bba1051</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

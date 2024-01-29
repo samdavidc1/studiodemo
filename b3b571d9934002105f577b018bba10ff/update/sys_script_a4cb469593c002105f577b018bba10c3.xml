@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sc_req_item</collection>
+        <condition>current.variables.vs_rq_requested_for!=""&amp;&amp;current.variables.vs_rq_quantity!=""&amp;&amp;current.variables.vs_rq_total_price!=""</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Remaining Value update OnHand value</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    // Get the location variable value
+    var location = current.variables.vs_rq_requested_for.location;
+    // Initialize a GlideRecord for the credit limit table query the location column with requested for user location
+    var locationGR = new GlideRecordSecure("x_898369_ava_cre_0_location_credit_limit");
+    locationGR.addQuery('x_avaso_ava_credit_location', location);
+    locationGR.query();
+    // Check if the location record is available
+    if (locationGR.next()) {
+        var locationLimit = parseInt(locationGR.x_avaso_ava_credit_credit_limit);
+        var totalPrice = parseInt(current.request.price);
+        // Access the credit limit field value and update the actual credit limit of the item
+        locationGR.x_avaso_ava_credit_credit_limit = (locationLimit + totalPrice);
+        gs.info("totalprice" + current.request.price);
+        //update the record
+        locationGR.update();
+        gs.info("InsideIf" + locationGR.x_avaso_ava_credit_credit_limit);
+    }
+
+    // Initialize a GlideRecord for the item on-hand value table and query the item column with user submitted item
+    var catItemGR = new GlideRecordSecure("x_898369_ava_cre_0_item_quantity");
+    catItemGR.addQuery('x_avaso_ava_credit_item', current.cat_item);
+    catItemGR.query();
+    // Check if the catalog item record is available
+    if (catItemGR.next()) {
+        // Access the onhand value field, Subtract the quantity from the catalog item's onhand value
+        catItemGR.x_avaso_ava_credit_on_hand_value = catItemGR.x_avaso_ava_credit_on_hand_value + current.quantity;
+        // Update the record
+        catItemGR.update();
+    }
+
+
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 11:52:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a4cb469593c002105f577b018bba10c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Remaining Value update OnHand value</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+        <sys_update_name>sys_script_a4cb469593c002105f577b018bba10c3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 11:52:31</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=a4cb469593c002105f577b018bba10c3"/>
+</record_update>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_avaso_ava_credit_location" label="Location" language="en" table="x_898369_ava_cre_0_location_credit_limit">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_avaso_ava_credit_location</element>
+            <help/>
+            <hint/>
+            <label>Location</label>
+            <language>en</language>
+            <name>x_898369_ava_cre_0_location_credit_limit</name>
+            <plural>Locations</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-01-29 10:37:04</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Location</sys_name>
+            <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+            <sys_update_name>sys_documentation_x_898369_ava_cre_0_location_credit_limit_x_avaso_ava_credit_location_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-01-29 10:37:04</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_898369_ava_cre_0.quantityLimitUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>quantityLimitUtils</name>
+        <script><![CDATA[var quantityLimitUtils = Class.create();
+quantityLimitUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    priceValue: function() {
+        //Get the client side parameters reuestedfor user & catalog item id
+        var reqFor = this.getParameter('sysparm_user');
+        var catItem = this.getParameter('sysparm_id');
+        //Query the sys_user table to get the user location value, send the requested for user as a parameter to the GlideRecordSecure
+        var reqForLocation;
+        var requestedForGR = new GlideRecordSecure("sys_user");
+        requestedForGR.addQuery('sys_id', reqFor);
+        requestedForGR.query();
+        //Check the record availability & get the user location value from the location table
+        if (requestedForGR.next()) {
+            reqForLocation = requestedForGR.getValue('location');
+        }
+        //Query the creditLimimt location table to get the user location's credit limit
+        var locationCreditLimit;
+        var locationGR = new GlideRecordSecure("x_898369_ava_cre_0_location_credit_limit");
+        //send the user's location as a parameter to the location column & execute the query
+        locationGR.addQuery('x_avaso_ava_credit_location.sys_id', reqForLocation);
+        locationGR.query();
+        //Build an if condition & verify the records availability, het the credit limi field value
+        if (locationGR.next()) {
+            locationCreditLimit = locationGR.getValue('x_avaso_ava_credit_credit_limit');
+        }
+        //Query the catalog item table to get the price details of the item
+        var itemDetails = {};
+        var catalogItemGR = new GlideRecord("sc_cat_item");
+        //Send the catalog item id as parameter to the sys_id column & execute the query
+        catalogItemGR.addQuery('sys_id', catItem);
+        catalogItemGR.query();
+		//check the record availability & assign the price details to the itemdetails object
+        if (catalogItemGR.next()) {
+            itemDetails.price = catalogItemGR.getValue('price');
+            itemDetails.recurringPrice = catalogItemGR.getValue('recurring_price');
+            itemDetails.recurringFrequence = catalogItemGR.getValue('recurring_frequency');
+            itemDetails.locationCreditLimit = locationCreditLimit;
+        }
+		//By using JSON stringify method, send the itemDetails object to client side
+        return JSON.stringify(itemDetails);
+
+    },
+
+    catItemOrderLimit: function() {
+		//retive the catalog item sys_id form the client side
+        var itemID = this.getParameter('sysparm_id');
+        var itemOnHandValue;
+		//Query the item quantity table to get the on-hand value of the catalog item
+        var catItemGR = new GlideRecordSecure("x_898369_ava_cre_0_item_quantity");
+		//Send the item id as a parameter to the sys_id column & execute the query
+        catItemGR.addQuery('x_avaso_ava_credit_item.sys_id', itemID);
+        catItemGR.query();
+		//Check the item availability to get the on-hand field value assign it to the itemOnHandValue variable
+        if (catItemGR.next()) {
+            itemOnHandValue = catItemGR.getValue('x_avaso_ava_credit_on_hand_value');
+
+        }
+        return itemOnHandValue;
+    },
+
+
+    type: 'quantityLimitUtils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 11:45:06</sys_created_on>
+        <sys_id>4379421593c002105f577b018bba101e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>quantityLimitUtils</sys_name>
+        <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+        <sys_update_name>sys_script_include_4379421593c002105f577b018bba101e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 11:45:06</sys_updated_on>
+    </sys_script_include>
+</record_update>

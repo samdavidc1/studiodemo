@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="14463dd9934002105f577b018bba10a6" label="Location Credit limit" max_length="40" name="x_898369_ava_cre_0_location_credit_limit" type="collection">
+        <element label="Credit Limit" max_length="20" name="x_avaso_ava_credit_credit_limit" read_only="true" type="price"/>
+        <element choice="1" label="Location" max_length="32" name="x_avaso_ava_credit_location" reference="cmn_location" reference_qual="javascript: new itemLocationLimitUtils().getUsedLocationsItems(x_avaso_ava_credit_location_credit_limit);" type="reference" use_reference_qualifier="advanced">
+            <choice/>
+        </element>
+        <element label="Domain ID" max_length="20" name="x_avaso_ava_credit_sys_domain" type="domain_id"/>
+        <index name="index">
+            <element name="x_avaso_ava_credit_location"/>
+        </index>
+        <index name="index2">
+            <element name="x_avaso_ava_credit_sys_domain"/>
+        </index>
+    </element>
+</database>

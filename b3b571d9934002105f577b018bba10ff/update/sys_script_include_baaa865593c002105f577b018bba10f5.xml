@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_898369_ava_cre_0.itemLocationLimitUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This script includes used to restrict the selection existing location &amp; catalog item name</description>
+        <name>itemLocationLimitUtils</name>
+        <script><![CDATA[var itemLocationLimitUtils = Class.create();
+
+itemLocationLimitUtils.prototype = {
+    initialize: function() {},
+
+    //send the tableName as paramter to the function, create a empry array to store the sys_id of the records
+    getUsedLocationsItems: function(tableName) {
+        var sysIds = [];
+        //query the table by using GlideRecordSecure object & execute the query 
+        var itemLocationGR = new GlideRecordSecure(tableName);
+        itemLocationGR.query();
+        var excludeRecord;
+        //create a variable to store the sys_id by using the while loop check the record availability
+        while (itemLocationGR.next()) {
+            //verify the table is credit limit or item quantity & assign the loction & item sys_id's to the variable
+            if (tableName == "x_898369_ava_cre_0_location_credit_limit") {
+                excludeRecord = itemLocationGR.x_avaso_ava_credit_location.toString();
+            } else if (tableName == "x_898369_ava_cre_0_item_quantity") {
+                excludeRecord = itemLocationGR.x_avaso_ava_credit_item.toString();
+            }
+            //push the sys_id's to the array
+            sysIds.push(excludeRecord);
+        }
+        //return the array which is not presented in the existing tables
+        return "sys_idNOT IN" + sysIds.toString();
+    },
+
+    type: 'itemLocationLimitUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 11:47:16</sys_created_on>
+        <sys_id>baaa865593c002105f577b018bba10f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>itemLocationLimitUtils</sys_name>
+        <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+        <sys_update_name>sys_script_include_baaa865593c002105f577b018bba10f5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 11:47:16</sys_updated_on>
+    </sys_script_include>
+</record_update>

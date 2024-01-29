@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sc_item_option</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="sc_item_option">item_option_new=2d5f737241411300964ff05369414eaf^EQ<item display_table="item_option_new" display_value="Quantity" endquery="false" field="item_option_new" goto="false" newquery="false" operator="=" or="false" value="2d5f737241411300964ff05369414eaf"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Quantity count updation</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    // Add your code here
+   //Store the current access the catalog item record
+    var cartItem = current.cart_item;
+	//get the user selected quantity value
+    var quantity = current.value;
+    // Query the cart and update it's quantity value with the variable's value.
+    var catItemGR = new GlideRecord('sc_cart_item');
+    catItemGR.addQuery('sys_id', cartItem);
+    catItemGR.query();
+    while (catItemGR.next()) {
+		//assign the cart item's quantity value into user selected value & update the record
+        catItemGR.quantity = quantity;
+        catItemGR.update();
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-29 11:50:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>366b069593c002105f577b018bba109a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Quantity count updation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+        <sys_update_name>sys_script_366b069593c002105f577b018bba109a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-29 11:50:38</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=366b069593c002105f577b018bba109a"/>
+</record_update>
