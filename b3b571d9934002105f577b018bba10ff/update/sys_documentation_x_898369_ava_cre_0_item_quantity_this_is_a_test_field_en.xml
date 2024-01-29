@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="this_is_a_test_field" label="This is a test field" language="en" table="x_898369_ava_cre_0_item_quantity">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>this_is_a_test_field</element>
+            <help/>
+            <hint/>
+            <label>This is a test field</label>
+            <language>en</language>
+            <name>x_898369_ava_cre_0_item_quantity</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2024-01-29 15:28:54</sys_created_on>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>This is a test field</sys_name>
+            <sys_package display_value="AVA Credit Manager" source="x_898369_ava_cre_0">b3b571d9934002105f577b018bba10ff</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="AVA Credit Manager">b3b571d9934002105f577b018bba10ff</sys_scope>
+            <sys_update_name>sys_documentation_x_898369_ava_cre_0_item_quantity_this_is_a_test_field_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2024-01-29 15:28:54</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

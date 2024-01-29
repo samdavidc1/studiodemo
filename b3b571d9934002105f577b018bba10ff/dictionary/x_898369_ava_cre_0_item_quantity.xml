@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="0c26b9d9934002105f577b018bba1007" label="Item Quantity" max_length="40" name="x_898369_ava_cre_0_item_quantity" type="collection">
+        <element label="This is a test field" max_length="40" name="this_is_a_test_field" type="string"/>
         <element label="Item" max_length="32" name="x_avaso_ava_credit_item" reference="sc_cat_item" reference_qual="javascript: new itemLocationLimitUtils().getUsedLocationsItems(x_avaso_ava_credit_item_quantity);" type="reference" use_reference_qualifier="advanced"/>
         <element label="On-hand value" max_length="40" name="x_avaso_ava_credit_on_hand_value" type="integer"/>
         <element label="Domain ID" max_length="40" name="x_avaso_ava_credit_sys_domain_item" type="domain_id"/>
